@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>8j Domain Notice</title>
+
+  <style>
+    :root {
+      --primary: #ff3c2f;
+      --blue: #2d6cdf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #000; /* Fallback */
+    }
+
+    /* FIX 1: Wrapper should be 100% width, not 650px */
+    .bg-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 650px; /* Limits size on desktop only */
+      margin: 0 auto;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Headline/Logo Scaling */
+    .logo img, .headline img, .subtext img, .main-domain img {
+      width: 100%;
+      height: auto;
+      max-width: 550px;
+      margin-bottom: 15px;
+    }
+
+    /* Base Card Styling */
+    .card {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      margin-top: -170px;
+      
+      /* Forces the div to stretch the background perfectly */
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      background-color: transparent !important;
+    }
+
+    /* Remove old overlay */
+    .card::before { display: none; }
+
+    /* FIX 1: Set specific aspect ratios so the div matches your image shape */
+    .card1 {
+      background-image: url('./images/a.png');
+      aspect-ratio: 360 / 500; /* Adjust height based on your a.png shape */
+    }
+
+    .card2 {
+      background-image: url('./images/b.png');
+      aspect-ratio: 350 / 220; /* Card 2 is usually shorter */
+    }
+
+    /* FIX 2: Create the text container with padding to hit the white area */
+    .card-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      padding-bottom: 12%; /* Keeps text above the gold/red bottom */
+      padding-left: 10%;
+      padding-right: 10%;
+      box-sizing: border-box;
+    }
+    .card1 .card-content {
+      /* Adjust these % values to move the text into the white box */
+      padding-top: 25%;    /* Pushes text down past the top ribbon */
+      
+    }
+    .card2 .card-content {
+      /* Adjust these % values to move the text into the white box */
+      padding-top: 14%;    /* Pushes text down past the top ribbon */
+    }
+
+    /* Domain List Styling */
+    .domain-list {
+      list-style: none;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    .domain-list li {
+      color: #2d6cdf;      /* Precise blue from image */
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.8); /* Optional: makes blue pop */
+    }
+    @media (max-width: 649px) { 
+      .card { margin-top: -120px; width: 100%; } 
+      .domain-list li {
+          font-size: 0.75rem;
+      }
+      .card1 {
+          aspect-ratio: 500 / 650;
+      }
+    }
+
+    /* Container for both buttons */
+    .floater-container {
+        position: fixed;
+        right: 20px;
+        bottom: 100px; /* Adjust height from bottom */
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Aligns X and CSR to the right */
+        gap: 5px; /* Space between X and CSR */
+        width: 50px; /* Default width for desktop */
+    }
+
+    /* The Close (X) Button */
+    .close-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 25px; /* Size of the X button */
+        padding: 0;
+        transition: transform 0.2s;
+    }
+
+    .close-btn img {
+        width: 100%;
+        height: auto;
+    }
+
+    .close-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* The Main CSR Button */
+    .csr-link {
+        display: block;
+        width: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .csr-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .csr-link:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Responsive Adjustments for Mobile */
+    @media (max-width: 480px) {
+        .floater-container {
+            right: 10px;
+            bottom: 80px;
+            width: 50px; /* Makes it smaller on phones */
+        }
+        
+        .close-btn {
+            width: 20px; /* Smaller X on phones */
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-wrapper">
+    <img src="./images/bg.png" class="bg-image" alt="background" />
+    <div class="overlay"></div>
+
+    <div class="container">
+
+      <div class="logo">
+        <img src="./images/LOGO.png" alt="8j logo">
+      </div>
+
+      <div class="headline">
+        <img src="./images/t1.png" alt="Title Header">
+      </div>
+
+      <div class="main-domain">
+        <a href="#">
+          <img src="./images/8j.com.png" alt="Button link">
+        </a>
+      </div>
+
+      <div class="subtext">
+        <img src="./images/t2.png" alt="Title subheader">
+      </div>
+
+      <div class="card card1">
+        <div class="card-content">
+          <ul class="domain-list">
+            <li><a href="#">8jh0.com</a></li>
+            <li><a href="#">8jh1.com</a></li>
+            <li><a href="#">8jh2.com</a></li>
+            <li><a href="#">8jh3.com</a></li>
+            <li><a href="#">8jh4.com</a></li>
+            <li><a href="#">8jh5.com</a></li>
+            <li><a href="#">8jh7.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card2">
+        <div class="card-content">
+          <ul class="domain-list">
+            <li><a href="#">8jh0.cc</a></li>
+            <li><a href="#">8jh1.cc</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+        © 2026 8j Platform
+      </div>
+
+    </div>
+  </div>
+
+  <div class="floater-container" id="floater">
+    <button class="close-btn" onclick="document.getElementById('floater').style.display='none'">
+        <img src="./images/X.png" alt="Close">
+    </button>
+    <a href="#" class="csr-link">
+        <img src="./images/csr.png" alt="Customer Service" class="csr-img">
+    </a>
+  </div>
+
+</body>
+</html>
